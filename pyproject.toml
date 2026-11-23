@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gaze-switch"
+version = "0.1.0"
+description = "Look at a monitor, keyboard focus follows. Gaze-driven focus switching for Linux."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Arafat Arzu" }]
+keywords = ["gaze", "focus", "multi-monitor", "wayland", "x11", "hyprland", "productivity"]
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python>=4.8",
+    "mediapipe>=0.10",
+]
+
+[project.scripts]
+gaze-switch = "gaze_switch.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
